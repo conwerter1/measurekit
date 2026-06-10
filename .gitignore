@@ -1,0 +1,32 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Android
+*.apk
+*.aab
+*.ap_
+*.dex
+captures/
+
+# Signing — NEVER commit keystores
+*.jks
+*.keystore
+keystore.properties
+
+# Build scripts (local paths)
+_first_build.bat
+_build_release.bat
+_git_push.bat
+
+# Mac
+.DS_Store
+
+# Logs
+*.log

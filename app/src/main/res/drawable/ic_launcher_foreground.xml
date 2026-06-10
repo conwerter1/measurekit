@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Простой ruler-силуэт: горизонтальная линейка с делениями -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M27,46 L81,46 L81,62 L27,62 Z" />
+    <path
+        android:fillColor="#1E5F8E"
+        android:strokeWidth="2"
+        android:strokeColor="#1E5F8E"
+        android:pathData="M30,46 L30,54 M36,46 L36,52 M42,46 L42,54 M48,46 L48,52 M54,46 L54,56 M60,46 L60,52 M66,46 L66,54 M72,46 L72,52 M78,46 L78,54" />
+</vector>
