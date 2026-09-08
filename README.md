@@ -64,3 +64,16 @@ See [Releases](https://github.com/conwerter1/measurekit/releases) for signed APK
 ## License
 
 Apache-2.0
+
+
+### Release signing
+
+Signing credentials are supplied through environment variables:
+`ANDROID_KEYSTORE_PATH`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`,
+and `ANDROID_KEY_PASSWORD`. The keystore must stay outside the repository.
+Without all four variables, release builds are **unsigned** and are not ready
+for installation or distribution. Debug builds do not need these variables.
+Never place password values in scripts or commits. Previously committed signing
+passwords must be changed locally; deleting them from the latest source does not
+remove them from Git history. Preserve the existing signing key to retain app
+update compatibility.
