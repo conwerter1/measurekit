@@ -24,9 +24,16 @@ keystore.properties
 _first_build.bat
 _build_release.bat
 _git_push.bat
+_push_privacy.bat
+.env
+.env.*
+!.env.example
 
 # Mac
 .DS_Store
 
 # Logs
 *.log
+
+# Kotlin compiler cache
+.kotlin/

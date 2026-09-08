@@ -17,19 +17,29 @@ android {
         versionName = "0.4.2"
     }
 
+    val signingValues = listOf(
+        "ANDROID_KEYSTORE_PATH", "ANDROID_KEYSTORE_PASSWORD",
+        "ANDROID_KEY_ALIAS", "ANDROID_KEY_PASSWORD",
+    ).associateWith { System.getenv(it)?.takeIf(String::isNotBlank) }
+    val hasReleaseSigning = signingValues.values.all { it != null }
+
     signingConfigs {
-        create("release") {
-            storeFile = file("C:/Work_Claude/Temp/protocolvoice-release.jks")
-            storePassword = "protocolvoice2026"
-            keyAlias = "protocolvoice"
-            keyPassword = "protocolvoice2026"
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(signingValues.getValue("ANDROID_KEYSTORE_PATH")!!)
+                storePassword = signingValues.getValue("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = signingValues.getValue("ANDROID_KEY_ALIAS")
+                keyPassword = signingValues.getValue("ANDROID_KEY_PASSWORD")
+            }
         }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("release")
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
         debug {
             isDebuggable = true
